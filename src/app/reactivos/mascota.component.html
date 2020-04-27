@@ -25,7 +25,7 @@
     <br>
     <div formArrayName="contactos">
         <h3>Contacto</h3>
-        <button (click)="agregarContacto()">Agregar Contacto</button>
+        <button type="button" (click)="agregarContacto()">Agregar Contacto</button>
         <br><br>
 
         <div *ngFor="let contacto of contactos.controls; let i = index">
