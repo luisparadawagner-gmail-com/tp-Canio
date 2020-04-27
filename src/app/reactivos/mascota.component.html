@@ -1,0 +1,44 @@
+<h1>Mascota</h1>
+
+<form [formGroup]="mascotaForm" (ngSubmit)=submit()>
+    <h3>Personal</h3>
+
+    <label>Raza
+        <input type="text" formControlName="raza">
+    </label>
+    <label>Nombre
+        <input type="text" formControlName="nombre">
+    </label>
+    <label>Edad
+        <input type="text" formControlName="edad">
+    </label>
+    <br><br>
+
+    <div formGroupName="direccion">
+        <h3>Direccion</h3>
+        <label>Calle
+        <input type="text" formControlName="calle"></label>
+        <br>
+        <label>Numero
+        <input type="text" formControlName="numero"></label>
+    </div>
+    <br>
+    <div formArrayName="contactos">
+        <h3>Contacto</h3>
+        <button (click)="agregarContacto()">Agregar Contacto</button>
+        <br><br>
+
+        <div *ngFor="let contacto of contactos.controls; let i = index">
+            <label>
+                Contacto <input type="text" [formControlName]="i">
+            </label>
+        </div>
+    </div>
+
+    <br><br>
+    Status Formulario: {{mascotaForm.status}}
+    
+    <button type="submit">Guardar</button>
+    
+
+</form>
