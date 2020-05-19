@@ -21,18 +21,22 @@ export class MascotaComponent {
 		contactos: this.fb.array([ this.fb.control('') ])
 	});
 
+
 	get contactos() {
 		return this.mascotaForm.get('contactos') as FormArray;
 	}
-
 	agregarContacto() {
 		this.contactos.push(this.fb.control(''));
 	}
 
+
+
+	
 	submit() {
 		debugger;
 		this.mascotaForm.value;
 
+		//setValue
 		this.mascotaForm.setValue({
 			raza: 'caniche',
 			nombre: 'Canio',
@@ -44,6 +48,7 @@ export class MascotaComponent {
 			contactos: this.contactos.value
 		});
 
+		//patchValue
 		this.mascotaForm.patchValue({ edad: 60 });
 	}
 }
